@@ -34,7 +34,8 @@ python3 load_tester.py
 To simulate analyzer failures, stop one of the analyzer containers. The load will be redistributed according to the weights- example `{analyzer-1: 1, analyzer-2: 2, analyzer-3: 3}`, we kill analyzer-1, the load distribution will be `{analyzer-2: 2, anlayzer-3: 3}`
 
 
-```docker stop {container-id-analyzer}
+```
+docker stop {container-id-analyzer}
 ```
 
 ### Prerequisites
