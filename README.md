@@ -14,9 +14,11 @@ Spin up the system with a specified number of log analyzers:
 docker-compose up --build --scale analyzer=3
 ```
 
+You should be able to send post requests to `http://localhost:6000/analyze`
+
 ## ⚙️ Configure Weight Distribution
 
-Specify how logs should be routed to different analyzers by modifying the `DISTRIBUTION_WEIGHTS` list in [`distributor.py`](./distributor/distributor.py):
+Specify how logs should be routed to different analyzers by modifying the `DISTRIBUTION_WEIGHTS` list in [`distributor.py`](./distributor/distributor.py). *Note: The legnth of DISTRIBUTION_WEIGHTS should be same as number of analyzer replicas*
 
 ```python
 DISTRIBUTION_WEIGHTS = [1, 1, 1]
