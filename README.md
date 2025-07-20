@@ -13,8 +13,29 @@ Spin up the system with a specified number of log analyzers:
 ```bash
 docker-compose up --build --scale analyzer=3
 ```
+You should now be able to access the distributor by sending post requests to http://localhost:6000/analyze
 
-You should be able to send post requests to `http://localhost:6000/analyze`
+### POST `/analyze`
+
+Analyze a single log entry and return the result of the analysis.
+
+### Request
+
+- **Method:** `POST`
+- **Content-Type:** `application/json`
+- **Body Parameters:**
+
+| Name | Type   | Required | Description               |
+|------|--------|----------|---------------------------|
+| log  | string | Yes      | The log message to analyze |
+
+#### Example Request Body
+
+```json
+{
+  "log": "User login failed from IP 192.168.1.10"
+}
+```
 
 ## ⚙️ Configure Weight Distribution
 
