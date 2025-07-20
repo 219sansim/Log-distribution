@@ -26,7 +26,15 @@ DISTRIBUTION_WEIGHTS = [1, 1, 1]
 To simulate incoming log traffic and evaluate system performance, use the built-in load tester.
 
 ```python
-load_tester.py
+python3 load_tester.py
+```
+
+## 🧪 Simulate Failure Testing
+
+To simulate analyzer failures, stop one of the analyzer containers. The load will be redistributed according to the weights- example `{analyzer-1: 1, analyzer-2: 2, analyzer-3: 3}`, we kill analyzer-1, the load distribution will be `{analyzer-2: 2, anlayzer-3: 3}`
+
+
+```docker stop {container-id-analyzer}
 ```
 
 ### Prerequisites
