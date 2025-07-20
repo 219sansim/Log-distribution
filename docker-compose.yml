@@ -1,0 +1,21 @@
+
+services:
+  analyzer:
+    build: ./analyzer
+    ports:
+      - "5000"
+    networks:
+      - log-distribution-network
+
+  load-balancer:
+    build: ./distributor
+    ports:
+      - "6000:6000"
+    networks:
+      - log-distribution-network
+    depends_on:
+      - analyzer
+
+networks:
+  log-distribution-network:
+    driver: bridge
