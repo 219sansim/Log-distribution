@@ -57,8 +57,8 @@ def update_healthy_backends():
 def get_next_backend():
     global wrr_index
     with lock:
-        backend = WEIGHTED_BACKEND_RING[wrr_index]
         wrr_index = (wrr_index + 1) % len(WEIGHTED_BACKEND_RING)
+        backend = WEIGHTED_BACKEND_RING[wrr_index]
     return backend
 
 @app.route('/analyze', methods=['POST'])
